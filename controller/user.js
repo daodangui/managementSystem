@@ -11,8 +11,8 @@ const login = function(req, res){
 			if(user){
 				bcrypt.compare(password, user.password, function(err, result){
 					if(result){
-						res.json(getUser({success: true}))
 						req.session.username = username
+						res.json(getUser({success: true}))
 					}else{
 						res.json(getUser({success: false}))
 					}
@@ -52,8 +52,16 @@ const logout = function(req, res){
 	res.json(getUser({success: true}))
 }
 
+const isLogin = function(req, res){
+	res.json(getUser({
+	    isLogin: req.session.username ? true : false,
+	    username: req.session.username
+	  }))
+}
+
 module.exports = {
 	login,
 	register,
-	logout
+	logout,
+	isLogin
 }

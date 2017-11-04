@@ -1,35 +1,40 @@
- <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
-        <ul class="nav nav-sidebar">
-          <li class="active"><a href="#">用户管理</a></li>
-          <li><a href="#">商品管理</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h2 class="sub-header">Section title</h2>
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>用户名</th>
-                <th>密码</th>
-                <th>邮箱</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1,001</td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
-            </tbody>
-          </table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <div class="panel-group" role="tablist">
+        <div class="panel panel-primary">
+          <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" href="#collapseListGroup1">
+                用户管理
+              </a>
+            </h4>
+          </div>
+          <div id="collapseListGroup1" class="panel-collapse collapse" style="height: 0px;">
+            <ul class="list-group">
+              <li class="list-group-item"><a href="javascript:void(0)">所有用户</a></li>
+              <li class="list-group-item"><a href="javascript:void(0)">添加用户</a></li>
+              <li class="list-group-item"><a href="javascript:void(0)">我的个人资料</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" href="#collapseListGroup2">
+                商品管理
+              </a>
+            </h4>
+          </div>
+          <div id="collapseListGroup2" class="panel-collapse collapse" style="height: 0px;">
+            <ul class="list-group">
+              <li class="list-group-item"><a href="">Bootply</a></li>
+              <li class="list-group-item"><a href="">One itmus ac facilin</a></li>
+              <li class="list-group-item"><a href="">Second eros</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

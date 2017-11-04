@@ -65,3 +65,11 @@ body {
   line-height: 25rem;
   font-size: 14rem;
 }
+
+.panel-group a{
+  text-decoration: none;
+}
+
+.panel-group li:hover{
+  background-color: #f5f5f5;
+}
