@@ -3,7 +3,14 @@
 module.exports = {
 	getUser: function(data){
 		return {
-			"status": 0,
+			"status": 1,
+			"msg": "数据请求成功",
+			"data": data
+		}
+	},
+	getSquare: function(data){
+		return {
+			"status": 1,
 			"msg": "数据请求成功",
 			"data": data
 		}

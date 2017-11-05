@@ -24,6 +24,7 @@ require(['../../config'], function(){
 				var $this = this
 				$.post('/api/users/isLogin', function(res){
 					if(res.data.isLogin){
+						window.username = res.data.username
 						$this.createHeader(true, res.data.username)
 						$this.loadContent()
 					}else{
@@ -34,7 +35,7 @@ require(['../../config'], function(){
 
 			loadContent(){
 				new content()
-				new main($('.container-fluid .row'))
+				new main($('.container-fluid .row .main'))
 			}
 		})
 

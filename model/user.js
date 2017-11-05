@@ -10,7 +10,13 @@ const schema = new db.Schema({
 		type: String,
 		required: true
 	},
+	tel: {
+		type: String
+	},
 	email: {
+		type: String
+	},
+	roles: {
 		type: String
 	}
 })

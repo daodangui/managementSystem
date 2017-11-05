@@ -18,12 +18,34 @@ define(['jquery', 'ejs', 'header', 'content', 'main', 'bootstrap'], function($, 
 
 			this.username = $('#register-model input[name=username]')
 			this.password = $('#register-model input[name=password]')
+			this.confirmpwd = $('#register-model input[name=confirmpwd]')
+			this.tel = $('#register-model input[name=tel]')
 			this.email = $('#register-model input[name=email]')
 		},
 
 		bindEvents: function(){
 			this.toRegister.on('click', $.proxy(this.handleRegister, this))
-			this.username.on('focus', $.proxy(this.clearAlertInfo, this))
+			this.confirmpwd.on('blur', $.proxy(this.verifypwd, this))
+			this.tel.on('blur', $.proxy(this.verifytel, this))
+			this.username.on('input', $.proxy(this.clearAlertInfo, this))
+		},
+
+		verifypwd: function(){
+			if(this.password.val() != this.confirmpwd.val()){
+				this.container.find('#register-model .verifyInfo').html('两次密码输入不一致')
+				this.container.find('#register-model .alertInfo>span').removeClass('hidden')
+			}else{
+				this.clearAlertInfo()
+			}
+		},
+
+		verifytel(){
+			if(!/^1[34578]\d{9}$/.test(this.tel.val())){
+				this.container.find('#register-model .verifyInfo').html('请输入有效手机号码')
+				this.container.find('#register-model .alertInfo>span').removeClass('hidden')
+			}else{
+				this.clearAlertInfo()
+			}
 		},
 
 		clearAlertInfo: function(){
@@ -38,7 +60,9 @@ define(['jquery', 'ejs', 'header', 'content', 'main', 'bootstrap'], function($, 
 				data: JSON.stringify({
 					username: this.username.val(),
 					password: this.password.val(),
-					email: this.email.val()
+					tel: this.tel.val(),
+					email: this.email.val(),
+					roles: 1
 				}),
 				success: this.handleRegisterSucc.bind(this)
 			})
@@ -47,16 +71,14 @@ define(['jquery', 'ejs', 'header', 'content', 'main', 'bootstrap'], function($, 
 		handleRegisterSucc: function(res){
 			if(res.data.success){
 				this.container.find('#register-model').modal('hide')
-				new Header({
-					isLogin: true,
-					username: this.username.val()
-				})
-				new content()
-				new main($('.container-fluid .row'))
+				this.container.find('#login-model').modal('show')
 				this.username.val('')
 				this.password.val('')
 				this.email.val('')
+				this.tel.val('')
+				this.confirmpwd.val('')
 			}else{
+				this.container.find('#register-model .verifyInfo').html('用户名已存在');
 				this.container.find('#register-model .alertInfo>span').removeClass('hidden')
 			}
 		}

@@ -1,0 +1,41 @@
+<div class="page-header">
+	<h3 style="display: inline-block; margin-right: 10px; ">广场简报</h3>
+	<button id="writeSubject" data-toggle="modal" data-target="#note-model" type="button" class="btn btn-default btn-sm" style="position: relative; top: -3px;">写文章</button>
+</div>
+
+<!-- 模态框 -->
+<div class="modal fade" id="note-model" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-md-3">
+            <h4 class="modal-title" id="myModalLabel">编辑主题</h4>
+          </div>
+          <div class="col-md-2 pull-right form-group form-inline">
+            <label for="subjectType" style="margin-right: 10px">分类</label>
+            <select class="form-control" id="subjectType">
+              <option value="图文">图文</option>
+              <option value="视频">视频</option>
+            </select>
+          </div>
+        </div>
+        <input type="text" style="margin-top: 10px" class="form-control" id="subjectTitle" placeholder="在此输入标题">
+      </div>
+      <div class="modal-body">
+        <div id="summernote"></div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-3 text-left text-muted subjectInfo hidden" style="font-size: 18px">
+            <i class="fa fa-spinner loading"></i>
+            <span>发布中</span>
+          </div>
+          <div class="col-md-3 pull-right">
+            <button id="postedSubject" type="button" class="btn btn-default">发布</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

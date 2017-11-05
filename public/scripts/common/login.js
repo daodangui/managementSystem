@@ -44,6 +44,7 @@ define(['jquery', 'ejs', 'header', 'content', 'main', 'bootstrap'], function($, 
 
 		handleLoginsucc: function(res){
 			if(res.data.success){
+				window.username = this.username.val()
 				this.loadContent()
 				this.container.find('#login-model').modal('hide')
 				this.username.val('')
@@ -59,7 +60,7 @@ define(['jquery', 'ejs', 'header', 'content', 'main', 'bootstrap'], function($, 
 				username: this.username.val()
 			})
 			new content()
-			new main($('.container-fluid .row'))
+			new main($('.container-fluid .row .main'))
 		}
 	})	
 

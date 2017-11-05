@@ -16,6 +16,10 @@ require.config({
         header: 'common/header',
         login: 'common/login',
         register: 'common/register',
-        main: 'common/main'
+        main: 'common/main',
+        personData: 'common/lcommon/personData',
+        square: 'common/lcommon/square',
+        summernote: 'base/summernote',
+        'summernote-zh-CN': 'base/summernote-zh-CN'
     }
 });

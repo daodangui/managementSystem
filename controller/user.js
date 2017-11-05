@@ -24,7 +24,7 @@ const login = function(req, res){
 }
 
 const register = function(req, res){
-	const { username, password, email, roles } = req.body
+	const { username, password, email, tel, roles } = req.body
 	User.findOne({username})
 		.then((user)=>{
 			if (user) {
@@ -36,6 +36,7 @@ const register = function(req, res){
 						username,
 						password,
 						email,
+						tel,
 						roles
 					})
 					//数据存入数据库
@@ -59,9 +60,63 @@ const isLogin = function(req, res){
 	  }))
 }
 
+const queryUser = function(req, res){
+	User.findOne({username: req.body.username})
+		.then((user)=>{
+			if(user){
+				res.json(getUser(user))
+			}
+		})
+}
+
+const getList = function(req, res){
+	var { pageSize, pageNo } = req.body
+	User.count({roles: "1"}, function(err, count){
+		var length = count;
+		User.find({})
+			.skip((pageNo - 1) * pageSize)
+			.limit(pageSize)
+			.then((result)=>{
+				var page = {
+					length,
+					result,
+					pageNo
+				}
+				res.json(getUser(page))
+			})
+	})
+}
+
+const updata = function(req, res){
+	var { _id, username, password, tel, email} = req.body
+	User.findOne({username})
+		.then((user)=>{
+			if(user && user.username != req.session.username){
+				res.json(getUser({success: false}))
+			}else{
+				bcrypt.hash(password, null, null, function(err, password){
+					User.findByIdAndUpdate(_id, {
+						$set: {
+							username,
+							password,
+							tel,
+							email
+						}
+					}).then(()=>{
+						req.session.username = username
+						res.json(getUser({success: true}))
+					})
+				})
+			}
+		})
+}
+
 module.exports = {
 	login,
 	register,
 	logout,
-	isLogin
+	isLogin,
+	getList,
+	queryUser,
+	updata
 }

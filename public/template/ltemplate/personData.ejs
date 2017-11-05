@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h3>我的个人资料</h3>
+</div>
+<div class="row">
+  <div class="alert alert-info" role="alert">现在，您可以直接更改表单来更新您的个人信息！</div>
+  <div class="modal-body col-md-6">
+    <input type="hidden" name="id">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">用户名</span>
+        <input type="text" class="form-control" name="username" placeholder="请输入用户名">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">新密码</span>
+        <input type="password" class="form-control" name="password" placeholder="请输入新密码">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">电话</span>
+        <input type="text" class="form-control" name="tel" placeholder="请输入电话号码">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">邮箱</span>
+        <input type="text" class="form-control" name="email" placeholder="请输入有效邮箱地址">
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" id="update">更新个人资料</button>
+    <div id="alertInfo" class="alert alert-danger hidden" role="alert" style="margin-top: 20px">用户名已存在</div>
+  </div>
+</div>
+

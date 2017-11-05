@@ -1,4 +1,4 @@
-<div class="modal fade" id="register-model" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="register-model" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,28 +7,40 @@
       <div class="modal-body">
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon2">用户名</span>
-            <input type="text" class="form-control" name="username" placeholder="请输入用户名" aria-describedby="sizing-addon2">
+            <span class="input-group-addon">用户名</span>
+            <input type="text" class="form-control" name="username" placeholder="请输入用户名">
           </div>
         </div>
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon2">密码</span>
-            <input type="text" class="form-control" name="password" placeholder="请输入密码" aria-describedby="sizing-addon2">
+            <span class="input-group-addon">密码</span>
+            <input type="password" class="form-control" name="password" placeholder="请输入密码">
           </div>
         </div>
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon2">邮箱</span>
-            <input type="text" class="form-control" name="email" placeholder="请输入有效邮箱地址" aria-describedby="sizing-addon2">
+            <span class="input-group-addon">确认密码</span>
+            <input type="password" class="form-control" name="confirmpwd" placeholder="请重复输入密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">电话</span>
+            <input type="text" class="form-control" name="tel" placeholder="请输入电话号码">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">邮箱</span>
+            <input type="text" class="form-control" name="email" placeholder="请输入有效邮箱地址">
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <div class="row">
           <div class="col-md-9 text-left text-danger alertInfo">
-            <span class="glyphicon glyphicon-remove-circle hidden" aria-hidden="true"></span>
-            <span class="hidden">用户名已存在</span>
+            <span class="glyphicon glyphicon-remove-circle hidden"></span>
+            <span class="hidden verifyInfo"></span>
           </div>
           <div class="col-md-3 text-right">
             <button type="button" class="btn btn-default" id="toRegister">提交注册</button>
