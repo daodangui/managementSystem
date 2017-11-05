@@ -1,0 +1,53 @@
+<div class="modal fade" id="addsceneryForm">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal">&times;</button>
+				<h4>景点信息</h4>
+			</div>
+			<div class="modal-body">
+				<form action="/api/scenery/addScenery" method="post" enctype="multipart/form-data" id="postSceneryForm">
+					<input type="hidden" id="sceneryid" name="sceneryid" value="">
+					<div class="form-group">
+						<div id="updateLogo"></div>
+						<label for="logo">景点图片</label>
+						<input type="file" accept="image/png,image/gif,image/jpeg" class="form-control" name="logo" id="logo" placeholder="请上传景点图片">
+					</div>
+					<div class="form-group">
+						<label for="sceneryName">景点名称</label>
+						<input type="text" class="form-control" name="sceneryName" id="sceneryName" placeholder="请输入景点名称">
+					</div>
+					<div class="form-group">
+						<label for="satisfaction">满意度</label>
+						<input type="text" class="form-control" name="satisfaction" id="satisfaction" placeholder="请输入景点满意度">
+					</div>
+					<div class="form-group">
+						<label for="summary">介绍</label>
+						<input type="text" class="form-control" name="summary" id="summary" placeholder="请用一句话概述景点">
+					</div>
+					<div class="form-group">
+						<label for="price">价格</label>
+						<input type="text" class="form-control" name="price" id="price" placeholder="请输入景点门票">
+					</div>
+					
+					<div class="form-group">
+						<label for="commentcount">评论数量</label>
+						<input type="text" class="form-control" name="commentcount" id="commentcount" placeholder="请输入评论数量">
+					</div>
+					
+					<div class="form-group">
+						<label for="tag">标签</label>
+						<input type="text" class="form-control" name="tag" id="tag" placeholder="请输入景点标签">
+					</div>
+					<div class="form-group">
+						<label for="grade">等级</label>
+						<input type="text" class="form-control" name="grade" id="grade" placeholder="请输入景点等级">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button id="submitBtn" class="btn btn-primary">提交</button>
+			</div>
+		</div>
+	</div>
+</div>

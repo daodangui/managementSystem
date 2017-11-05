@@ -16,6 +16,10 @@ require.config({
         header: 'common/header',
         login: 'common/login',
         register: 'common/register',
-        main: 'common/main'
+        main: 'common/main',
+        
+        hot: 'common/ycommon/hot',
+        sceneryList: 'common/ycommon/sceneryList',
+        pagination: 'common/ycommon/pagination'
     }
 });

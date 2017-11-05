@@ -6,14 +6,13 @@ define(['jquery', 'ejs'], function($, EJS){
 
 	$.extend(main.prototype, {
 		init(){
-			this.createDom()
+			this.createDom();
 		},
 
 		createDom: function(){
 			var html = new EJS({url: '/template/main.ejs'}).render({})
-			this.container.append(html)
+			this.container.html(html)
 		}
 	})
-
 	return main
 })

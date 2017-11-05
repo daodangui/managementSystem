@@ -59,7 +59,7 @@ define(['jquery', 'ejs', 'header', 'content', 'main', 'bootstrap'], function($, 
 				username: this.username.val()
 			})
 			new content()
-			new main($('.container-fluid .row'))
+			new main($('.container-fluid .row .main'))
 		}
 	})	
 

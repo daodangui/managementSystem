@@ -34,7 +34,7 @@ require(['../../config'], function(){
 
 			loadContent(){
 				new content()
-				new main($('.container-fluid .row'))
+				new main($('.container-fluid .row .main'))
 			}
 		})
 
