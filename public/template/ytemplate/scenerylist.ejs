@@ -1,0 +1,41 @@
+<% if (scenerylist.length > 0) { %>
+<% for (var i = 0; i < scenerylist.length; i++) {%>
+<tr sceneryid="<%= scenerylist[i]._id %>">
+	<td>
+		<%= i+1 %>
+	</td>
+	<td><img src="<%= '/upload/' + scenerylist[i].picture %>" alt="" width="50" height="30"></td>
+	<td>
+		<%= scenerylist[i].sceneryName %>
+	</td>
+	<td>
+		<%= scenerylist[i].satisfaction %>
+	</td>
+	<td>
+		<%= scenerylist[i].summary %>
+	</td>
+	<td>
+		<%= scenerylist[i].price %>
+	</td>
+	<td>
+		<%= scenerylist[i].commentcount %>
+	</td>
+	<td>
+		<%= scenerylist[i].tag %>
+	</td>
+	<td>
+		<%= scenerylist[i].grade %>
+	</td>
+	<td>
+		<button class="btn btn-primary" data-tag="update">修改</button>
+		<button class="btn btn-danger" data-tag="delete">删除</button>
+	</td>
+</tr>
+<%
+  }
+} else {
+%>
+<tr>
+	<td colspan="10"> 暂无数据 </td>
+</tr>
+<% } %>

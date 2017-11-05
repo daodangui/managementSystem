@@ -7,7 +7,7 @@ define(['jquery', 'ejs'], function($, EJS){
 
 	$.extend(main.prototype, {
 		init(){
-			this.createDom()
+			this.createDom();
 		},
 
 		createDom: function(){
@@ -59,6 +59,5 @@ define(['jquery', 'ejs'], function($, EJS){
 			this.bindEvents()
 		}
 	})
-
 	return main
 })

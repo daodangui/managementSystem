@@ -20,6 +20,9 @@ require.config({
         personData: 'common/lcommon/personData',
         square: 'common/lcommon/square',
         summernote: 'base/summernote',
-        'summernote-zh-CN': 'base/summernote-zh-CN'
+        'summernote-zh-CN': 'base/summernote-zh-CN',
+        hot: 'common/ycommon/hot',
+        sceneryList: 'common/ycommon/sceneryList',
+        pagination: 'common/ycommon/pagination'
     }
 });

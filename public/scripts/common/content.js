@@ -1,4 +1,4 @@
-define(['jquery','ejs', 'main', 'personData', 'square'], function($, EJS, main, personData, square){
+define(['jquery','ejs', 'main', 'personData', 'square', 'hot'], function($, EJS, main, personData, square, hot){
 	var content = function(container) {
 		this.container = container || $('body')
 		this.init()
@@ -16,11 +16,11 @@ define(['jquery','ejs', 'main', 'personData', 'square'], function($, EJS, main, 
 			this.container.append(html)
 		},
 
-
 		bindEvents(){
 			this.container.find('#personData').on('click', this.openPersonDataPage.bind(this))
 			this.container.find('#allUser').on('click', this.openAllUserList.bind(this))
 			this.container.find('#squareBtn').on('click', this.openSquareList.bind(this))
+			$('#hot').on('click', this.showHotTable.bind(this));
 		},
 
 		openSquareList(){
@@ -33,6 +33,10 @@ define(['jquery','ejs', 'main', 'personData', 'square'], function($, EJS, main, 
 
 		openAllUserList(){
 			new main($('.container-fluid .row .main'))
+		},
+
+		showHotTable: function(){
+			new hot($('.container-fluid .row .main'));
 		}
 
 	})
