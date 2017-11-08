@@ -14,14 +14,7 @@ const addscenery = function(req, res, next) {
 		tag,
 		grade
 	} = req.body;
-	console.log('到路由');
-	console.log(price);
-	console.log(req.body.sceneryid);
-
 	if(req.body.sceneryid) {
-		console.log('修改');
-		console.log(req.body.sceneryid);
-
 		var setScenery = {
 			sceneryName,
 			satisfaction,
@@ -42,7 +35,6 @@ const addscenery = function(req, res, next) {
 		})
 
 	} else {
-		console.log("ok");
 		const willsaveScenery = new Scenery({
 			picture: req.file && req.file.filename ? req.file.filename : '',
 			sceneryName,
@@ -113,10 +105,63 @@ const felist = function(req, res, next) {
 		})
 }
 
+//景点搜索
+const searchScenery = function(req, res, next) {
+	var pageSize = 2;
+	var {
+		content,
+		conditions
+	} = req.query;
+	var pageNo = 1;
+	if(conditions == '景点名称') {
+		console.log("kkkk");
+		Scenery.find({
+				sceneryName: eval('/' + content + '/')
+			})
+			.then((result) => {
+				res.json(getUser(result))
+			})
+	}
+//	if(conditions == 'grade') {
+//		Scenery.find({
+//				grade: content
+//			})
+//			.then((result) => {
+//				res.json(getUser(result))
+//			})
+//	}
+//	if(conditions == 'commentcount') {
+//		Scenery.find({
+//				commentcount: {
+//					$gt: content
+//				}
+//			})
+//			.then((result) => {
+//				var documentSize = result.length;
+//				Scenery.find({
+//					commentcount: {
+//						$gt: content
+//					}
+//				})
+//				.skip((pageNo - 1) * pageSize)
+//				.limit(pageSize)
+//				.then((result) => {
+//					var page = {
+//						result,
+//						pageCount: Math.ceil(documentSize / pageSize),
+//						pageNo: parseInt(pageNo, 10)
+//					}
+//					res.json(getUser(page))
+//				})
+//			})
+//	}
+}
+
 module.exports = {
 	addscenery,
 	getScenerylist,
 	deleteScenery,
 	updateScenery,
-	felist
+	felist,
+	searchScenery
 }

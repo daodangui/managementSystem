@@ -1,0 +1,32 @@
+#addscenery{
+	position: absolute;
+	top: 25px;
+}
+#table-title{
+	text-align: center;
+	font-size: 20px;
+	color: #337AB7;
+}
+#searchForm{
+	width: 110px;
+	position: absolute;
+	top: 25px;
+	/*left: 700px;*/
+	right: 300px;
+}
+#box{
+	width: 160px;
+	position: absolute;
+	top: 25px;
+	/*left: 820px;*/
+	right: 120px;
+}
+#box input{
+	width: 90px;
+	display: inline-block;
+}
+#box button{
+	width: 60px;
+	display: inline-block;
+	
+}
