@@ -11,13 +11,15 @@
 	width: 110px;
 	position: absolute;
 	top: 25px;
-	left: 700px;
+	/*left: 700px;*/
+	right: 300px;
 }
 #box{
 	width: 160px;
 	position: absolute;
 	top: 25px;
-	left: 820px;
+	/*left: 820px;*/
+	right: 120px;
 }
 #box input{
 	width: 90px;
