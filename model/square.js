@@ -11,7 +11,7 @@ const schema = new db.Schema({
 		require: true
 	},
 	createTime: {
-		type: Date,
+		type: String,
 		require: true
 	},
 	imgUrl: {
@@ -22,9 +22,9 @@ const schema = new db.Schema({
 		type: String,
 		require: true
 	},
-	userId: {
+	username: {
 		type: String,
-		require: false
+		require: true
 	},
 	replyCount: {
 		type: Number,

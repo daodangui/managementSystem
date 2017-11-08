@@ -2,6 +2,55 @@
 	<h3 style="display: inline-block; margin-right: 10px; ">广场简报</h3>
 	<button id="writeSubject" data-toggle="modal" data-target="#note-model" type="button" class="btn btn-default btn-sm" style="position: relative; top: -3px;">写文章</button>
 </div>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>标题</th>
+        <th>发布者</th>
+        <th>分类</th>
+        <th>日期</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0; i<list.length; i++){ %>
+      <tr data-id="<%= list[i]._id %>">
+        <td><%= list[i].title %></td>
+        <td><%= list[i].username %></td>
+        <td><%= list[i].type %></td>
+        <td><%= list[i].createTime %></td>
+        <td>
+          <a href="javascript:void(0)" class="btn btn-primary btn-sm watchSubject">查看</a>
+          <a href="javascript:void(0)" class="btn btn-danger btn-sm delSubject">删除</a>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <div class="pull-right">
+    <nav aria-label="Page navigation " style="margin-right: 20px">
+      <ul class="pagination">
+        <li class="<%= pageNo == 1 ? 'disabled':'' %> Back">
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <% for(var i=1; i<= pageCount; i++){ %>
+        <li class="<%= i == pageNo ? 'active':'' %>"><a href="#"><%= i %></a></li>
+        <% } %>
+        <li class="<%= pageNo == pageCount ? 'disabled':'' %> Next">
+          <a href="#">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+  </nav>
+  </div>
+</div>
 
 <!-- 模态框 -->
 <div class="modal fade" id="note-model" tabindex="-1" role="dialog">
