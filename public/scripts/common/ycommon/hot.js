@@ -3,7 +3,7 @@ define(['jquery', 'ejs','sceneryList','pagination'], function($, EJS,sceneryList
 		this.container = container || $('body')
 		this.init()
 	}
-
+	
 	$.extend(hot.prototype, {
 		init: function(){
 			this.createDom();

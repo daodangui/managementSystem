@@ -31,7 +31,6 @@ define(['jquery', 'ejs'], function($, EJS) {
 				scenerylist: res.data.result
 			});
 			this.container.html(html);
-			
 			//绑定删除和修改事件
 			this.bindEvents();
 			//触发绑定在scenerylist对象上的事件，将分页的信息传到pagination
@@ -40,7 +39,39 @@ define(['jquery', 'ejs'], function($, EJS) {
 		
 		bindEvents: function(){
 			$('#sceneryList').on('click', this.handleManagelist.bind(this));
+			//绑定搜索事件
+			$('#searchBtn').on('click', this.handleSearch.bind(this));
 		},
+		
+		handleSearch: function(){
+			var conditions = $('#searchForm').find('option:selected').text();
+			var content = $("#inputPassword").val();
+			$.ajax({
+					url:"/api/scenery/findScenery",
+					data:{
+						conditions : conditions,
+						content : content
+					},
+					//直接调用handleGetscenerylist不必重新写
+					success: this.handleSearchscenery.bind(this)
+				});
+		},
+		
+		handleSearchscenery: function(res){
+			console.log(res);
+			var list = new EJS({
+				url: '../../../template/ytemplate/scenerylist.ejs'
+			});
+			var html = list.render({
+				scenerylist: res.data
+			});
+			this.container.html(html);
+			//绑定删除和修改事件
+			this.bindEvents();
+			//触发绑定在scenerylist对象上的事件，将分页的信息传到pagination
+			$(this).trigger(new $.Event('pagemsg', res.data))
+		},
+		
 		
 		handleManagelist: function(e){
 			var sceneryid = $(e.target).closest("tr").attr('sceneryid');
@@ -74,9 +105,7 @@ define(['jquery', 'ejs'], function($, EJS) {
 		handleupdatescenery: function(res){
 			$('#updateLogo').html(`<img src=/upload/${res.data.picture} width=30 height=30 />`);
 			$('#sceneryid').val(res.data._id);
-//			alert($('#sceneryid').val());
 			$('#sceneryName').val(res.data.sceneryName);
-//			alert($('#sceneryName').val());
 			$('#satisfaction').val(res.data.satisfaction);
 			$('#summary').val(res.data.summary);
 			$('#price').val(res.data.price);

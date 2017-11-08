@@ -32,6 +32,9 @@ router.get('/scenery/getScenerylist', sceneryController.getScenerylist);
 router.get('/scenery/deleteScenery', sceneryController.deleteScenery);
 router.get('/scenery/updateScenery', sceneryController.updateScenery);
 
+//景点搜索
+router.get('/scenery/findScenery', sceneryController.searchScenery);
+
 
 //前端请求的数据
 router.get('/scenery/felist', sceneryController.felist);
