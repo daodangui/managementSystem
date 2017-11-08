@@ -57,8 +57,7 @@ const getList = function(req, res){
 }
 
 const accImgFromClient = function(req, res){
-	
-
+	console.log(req.files);
 }
 
 module.exports = {

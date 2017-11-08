@@ -33,14 +33,14 @@ define(['jquery', 'ejs', 'summernote', 'summernote-zh-CN'], function($, EJS, sum
 				$(document).ready(function(){
 					$('#summernote').summernote({ 
 						lang: 'zh-CN',
-						 height: '400px'
-						 // callbacks: {
-						 // 	onImageUpload: function(files){
-						 // 		var data = new FormData()
-						 // 		data.append('imgUp', files[0])
-						 // 		this.imgUpToServer(data)
-						 // 	}
-						 // }
+						 height: '400px',
+						 callbacks: {
+						 	onImageUpload: function(files){
+						 		var data = new FormData()
+						 		data.append('imgUp', files[0])
+						 		this.imgUpToServer(data)
+						 	}
+						 }
 						})
 				})
 				this.title = this.container.find('#subjectTitle')

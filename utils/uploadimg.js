@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
 		//会在public之下建立upload文件夹来存放图片文件
 		cb(null,'./public/upload')
 	},
-	
+	//重命名文件
 	filename: function(req,file,cb){
 		crypto.pseudoRandomBytes(16,function(err,raw){
 			cb(null,raw.toString('hex') + new Date().getTime() + '.' + mime.extension(file.mimetype))
