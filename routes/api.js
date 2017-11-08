@@ -23,7 +23,7 @@ router.post('/square/addSubject', squareController.addSubject)
 router.post('/square/removeSubject', squareController.removeSubject)
 router.post('/square/updateSubject', squareController.updateSubject)
 router.post('/square/queryOne', squareController.queryOne)
-router.post('/square/accImgFromClient', upload.single('logo'), squareController.accImgFromClient)
+router.post('/square/accImgFromClient', upload.single('imgUp'), squareController.accImgFromClient)
 
 
 //热门景点的添加

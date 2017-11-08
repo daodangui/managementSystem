@@ -12,7 +12,7 @@ const login = function(req, res){
 				bcrypt.compare(password, user.password, function(err, result){
 					if(result){
 						req.session.username = username
-						res.json(getUser({success: true}))
+						res.json(getUser({success: true, user}))
 					}else{
 						res.json(getUser({success: false}))
 					}
@@ -37,7 +37,8 @@ const register = function(req, res){
 						password,
 						email,
 						tel,
-						roles
+						roles,
+						status: 1
 					})
 					//数据存入数据库
 					willSaveUser.save().then(()=>{
@@ -71,7 +72,7 @@ const queryUser = function(req, res){
 
 const getList = function(req, res){
 	var { pageSize, pageNo } = req.body
-	User.count({roles: "1"}, function(err, count){
+	User.count({}, function(err, count){
 		var length = count;
 		User.find({})
 			.skip((pageNo - 1) * pageSize)
@@ -88,27 +89,39 @@ const getList = function(req, res){
 }
 
 const updata = function(req, res){
-	var { _id, username, password, tel, email} = req.body
-	User.findOne({username})
-		.then((user)=>{
-			if(user && user.username != req.session.username){
-				res.json(getUser({success: false}))
-			}else{
-				bcrypt.hash(password, null, null, function(err, password){
-					User.findByIdAndUpdate(_id, {
-						$set: {
-							username,
-							password,
-							tel,
-							email
-						}
-					}).then(()=>{
-						req.session.username = username
-						res.json(getUser({success: true}))
-					})
-				})
+	if(req.body.status){
+		var status = req.body.status
+		var _id = req.body.id
+		User.findByIdAndUpdate(_id, {
+			$set: {
+				status: parseInt(status)
 			}
+		}).then(()=>{
+			res.json(getUser({success: true}))
 		})
+	}else{
+		var { _id, username, password, tel, email} = req.body
+		User.findOne({username})
+			.then((user)=>{
+				if(user && user.username != req.session.username){
+					res.json(getUser({success: false}))
+				}else{
+					bcrypt.hash(password, null, null, function(err, password){
+						User.findByIdAndUpdate(_id, {
+							$set: {
+								username,
+								password,
+								tel,
+								email
+							}
+						}).then(()=>{
+							req.session.username = username
+							res.json(getUser({success: true}))
+						})
+					})
+				}
+			})
+	}
 }
 
 module.exports = {

@@ -46,6 +46,36 @@ define(['jquery', 'ejs'], function($, EJS){
 					}
 					
 				})
+			this.container.find('.embargo').on('click', this.embargo.bind(this))
+		},
+
+		embargo(e){
+			var text = $(e.target).text()
+			if(text == '封禁'){
+				var id = $(e.target).closest('tr').attr('data-id')
+				$.post('/api/users/updata', {
+					id,
+					status: 0
+				}, function(res){
+					if(res.data.success){
+						$(e.target).closest('tr').addClass('danger')
+						$(e.target).text("解禁")
+					}
+					
+				})
+			}else{
+				var id = $(e.target).closest('tr').attr('data-id')
+				$.post('/api/users/updata', {
+					id,
+					status: 1
+				}, function(res){
+					if(res.data.success){
+						$(e.target).closest('tr').removeClass('danger')
+						$(e.target).text("封禁")
+					}
+				})
+			}
+			
 		},
 
 		createEJS: function(data){

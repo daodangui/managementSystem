@@ -57,7 +57,12 @@ const getList = function(req, res){
 }
 
 const accImgFromClient = function(req, res){
-	console.log(req.files);
+	if (req.file && req.file.filename) {
+      	var imgurl = '/upload/' + req.file.filename
+    	res.json(getSquare({success: true, imgurl}))
+    }else{
+    	res.json(getSquare({success: false}))
+    }
 }
 
 module.exports = {

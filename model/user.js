@@ -18,6 +18,10 @@ const schema = new db.Schema({
 	},
 	roles: {
 		type: String
+	},
+	status: {
+		type: Number,
+		required: true
 	}
 })
 

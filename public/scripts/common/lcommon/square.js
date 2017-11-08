@@ -21,6 +21,7 @@ define(['jquery', 'ejs', 'summernote', 'summernote-zh-CN'], function($, EJS, sum
 		},
 
 		createEJS(data){
+			var $this = this
 			var html = new EJS({url: '/template/ltemplate/square.ejs'}).render({
 					list: data.data.result,
 					pageNo: data.data.pageNo,
@@ -38,7 +39,7 @@ define(['jquery', 'ejs', 'summernote', 'summernote-zh-CN'], function($, EJS, sum
 						 	onImageUpload: function(files){
 						 		var data = new FormData()
 						 		data.append('imgUp', files[0])
-						 		this.imgUpToServer(data)
+						 		$this.imgUpToServer(data)
 						 	}
 						 }
 						})
@@ -48,7 +49,6 @@ define(['jquery', 'ejs', 'summernote', 'summernote-zh-CN'], function($, EJS, sum
 		},
 
 		imgUpToServer(data){
-			console.log(this);
 			$.ajax({
 				url: '/api/square/accImgFromClient',
                 type: 'POST',
@@ -57,7 +57,11 @@ define(['jquery', 'ejs', 'summernote', 'summernote-zh-CN'], function($, EJS, sum
                 contentType: false,
                 processData: false,
                 success: function (result) {
-                    $('#summernote').summernote('insertImage',result.data.url);
+                	if(result.data.success){
+                		$('#summernote').summernote('insertImage',result.data.imgurl);
+                	}else{
+                		alert('图片上传失败')
+                	}
                 }
 			})
 		},
