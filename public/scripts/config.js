@@ -23,6 +23,8 @@ require.config({
         'summernote-zh-CN': 'base/summernote-zh-CN',
         hot: 'common/ycommon/hot',
         sceneryList: 'common/ycommon/sceneryList',
-        pagination: 'common/ycommon/pagination'
+        pagination: 'common/ycommon/pagination',
+        recommend: 'common/ycommon/recommend',
+        recommendlist: 'common/ycommon/recommendlist',
     }
 });
