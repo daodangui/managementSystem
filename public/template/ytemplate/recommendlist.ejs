@@ -1,0 +1,38 @@
+<% if (recommendlist.length > 0) { %>
+<% for (var i = 0; i < recommendlist.length; i++) {%>
+<tr recommendid="<%= recommendlist[i]._id %>">
+	<td>
+		<%= i+1 %>
+	</td>
+	<td><img src="<%= '/upload/' + recommendlist[i].SceneryImg %>" alt="" width="50" height="30"></td>
+	<td>
+		<%= recommendlist[i].SceneryName %>
+	</td>
+	<td>
+		<%= recommendlist[i].Satisfaction %>
+	</td>
+	<td>
+		<%= recommendlist[i].Describe %>
+	</td>
+	<td>
+		<%= recommendlist[i].LowPrice %>
+	</td>
+	<td>
+		<%= recommendlist[i].CommentNumber %>
+	</td>
+	<td>
+		<%= recommendlist[i].Distance %>
+	</td>
+	<td>
+		<button class="btn btn-primary" data-tag="update">修改</button>
+		<button class="btn btn-danger" data-tag="delete">删除</button>
+	</td>
+</tr>
+<%
+  }
+} else {
+%>
+<tr>
+	<td colspan="9"> 暂无数据 </td>
+</tr>
+<% } %>

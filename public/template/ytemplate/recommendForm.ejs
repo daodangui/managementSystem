@@ -1,0 +1,49 @@
+<div class="modal fade" id="addrecommedForm">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal">&times;</button>
+				<h4>景点信息</h4>
+			</div>
+			<div class="modal-body">
+				<form action="/api/recommend/addRecommend" method="post" enctype="multipart/form-data" id="postRecommendForm">
+					<input type="hidden" id="recommendid" name="recommendid" value="">
+					<div class="form-group">
+						<div id="updateLogo"></div>
+						<label for="logo">景点图片</label>
+						<input type="file" accept="image/png,image/gif,image/jpeg" class="form-control" name="logo" id="logo" placeholder="请上传景点图片">
+					</div>
+					<div class="form-group">
+						<label for="SceneryName">景点名称</label>
+						<input type="text" class="form-control" name="SceneryName" id="SceneryName" placeholder="请输入景点名称">
+					</div>
+					<div class="form-group">
+						<label for="Satisfaction">满意度</label>
+						<input type="text" class="form-control" name="Satisfaction" id="Satisfaction" placeholder="请输入景点满意度">
+					</div>
+					<div class="form-group">
+						<label for="Describe">介绍</label>
+						<input type="text" class="form-control" name="Describe" id="Describe" placeholder="请用一句话概述景点">
+					</div>
+					<div class="form-group">
+						<label for="LowPrice">价格</label>
+						<input type="text" class="form-control" name="LowPrice" id="LowPrice" placeholder="请输入景点门票">
+					</div>
+					
+					<div class="form-group">
+						<label for="CommentNumber">评论数量</label>
+						<input type="text" class="form-control" name="CommentNumber" id="CommentNumber" placeholder="请输入评论数量">
+					</div>
+					
+					<div class="form-group">
+						<label for="Distance">距离</label>
+						<input type="text" class="form-control" name="Distance" id="Distance" placeholder="请输入距离">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button id="submitBtn" class="btn btn-primary">提交</button>
+			</div>
+		</div>
+	</div>
+</div>
