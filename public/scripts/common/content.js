@@ -1,4 +1,4 @@
-define(['jquery','ejs', 'main', 'personData', 'square', 'hot','recommend'], function($, EJS, main, personData, square, hot,recommend){
+define(['jquery','ejs', 'main', 'personData', 'square', 'hot', 'recommend', 'CSpage'], function($, EJS, main, personData, square, hot, recommend, CSpage){
 	var content = function(container) {
 		this.container = container || $('body')
 		this.init()
@@ -20,9 +20,14 @@ define(['jquery','ejs', 'main', 'personData', 'square', 'hot','recommend'], func
 			this.container.find('#personData').on('click', this.openPersonDataPage.bind(this))
 			this.container.find('#allUser').on('click', this.openAllUserList.bind(this))
 			this.container.find('#squareBtn').on('click', this.openSquareList.bind(this))
+			this.container.find('#csBtn').on('click', this.openCSpage.bind(this))
 			$('#hot').on('click', this.showHotTable.bind(this));
 			$('#recommend').on('click', this.showrecommendtable.bind(this));
 			
+		},
+
+		openCSpage(){
+			new CSpage($('.container-fluid .row .main'))
 		},
 
 		openSquareList(){

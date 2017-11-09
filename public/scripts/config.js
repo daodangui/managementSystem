@@ -26,5 +26,6 @@ require.config({
         pagination: 'common/ycommon/pagination',
         recommend: 'common/ycommon/recommend',
         recommendlist: 'common/ycommon/recommendlist',
+        CSpage: 'common/lcommon/CSpage'
     }
 });

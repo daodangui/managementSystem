@@ -34,7 +34,6 @@ const getRecommendlist = function(req, res, next) {
 	var {
 		pageNo
 	} = req.body;
-	console.log(pageNo)
 	Recommend.find({})
 		.then((result) => {
 

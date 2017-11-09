@@ -1,0 +1,42 @@
+<div class="page-header">
+ 	<h3>客户咨询响应</h3>
+</div>
+<div class="row">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>用户名</th>
+				<th>概览</th>
+				<th>消息数</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id="msgList">
+			
+		</tbody>
+	</table>
+</div>
+
+
+<!-- 模态框 -->
+<div class="modal fade" id="CSpage-model" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">用户名</h4>
+      </div>
+      <div class="modal-body">
+       	<div class="showWordsBox">
+          	
+        </div>
+      </div>
+      <div class="modal-footer">
+          <textarea class="form-control" rows="3" id="sendText"></textarea>
+          <div class="row" style="padding: 15px 15px 0px">
+          	<button class="btn btn-default" id="sendMsg">发送</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
