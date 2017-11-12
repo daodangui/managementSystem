@@ -1,4 +1,4 @@
-define(['jquery', 'ejs','require'], function($, EJS,require) {
+define(['jquery', 'ejs'], function($, EJS) {
 	const sceneryList = function(container) {
 		this.container = container || $('body')
 		this.init()
@@ -97,9 +97,7 @@ define(['jquery', 'ejs','require'], function($, EJS,require) {
 		
 		handledeletescenery: function(res){
 			if(res.data.success){
-//				require('content').showHotTable();
-				new hot($('.container-fluid .row .main'));
-//				window.location.reload();
+				$('#hot').trigger('click');
 			}
 		},
 		
