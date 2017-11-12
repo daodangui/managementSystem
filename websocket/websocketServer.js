@@ -3,7 +3,7 @@ function websocket(){
 	
 	var WebsocketServer = require('ws').Server;
 
-	wss = new WebsocketServer({port:8088, host:'10.9.164.43'});
+	wss = new WebsocketServer({port:8088});
 
 	var clientMap = new Object();
 

@@ -31,7 +31,10 @@ const addscenery = function(req, res, next) {
 		Scenery.findByIdAndUpdate(req.body.sceneryid, {
 			$set: setScenery
 		}).then(() => {
-			res.redirect('/index.html')
+//			res.redirect('/index.html')
+			res.json(getUser({
+				success: true
+			}))
 		})
 
 	} else {
@@ -47,8 +50,10 @@ const addscenery = function(req, res, next) {
 		});
 
 		willsaveScenery.save().then(() => {
-//			new hot($('.container-fluid .row .main'));
-			res.redirect('/index.html');
+//			res.redirect('/index.html');
+			res.json(getUser({
+				success: true
+			}))
 		})
 	}
 }

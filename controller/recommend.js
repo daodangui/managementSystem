@@ -25,7 +25,9 @@ const addRecommend = function(req, res, next) {
 	});
 
 	willsaveRecommend.save().then(() => {
-		res.redirect('/index.html');
+		res.json(getUser({
+				success: true
+			}))
 	})
 }
 

@@ -9,9 +9,6 @@ define(['jquery', 'ejs', 'initscenery', 'pagination'], function($, EJS, initscen
 			this.createDom();
 			this.createForm();
 			this.formShow();
-			
-			
-			
 		},
 
 		createDom: function() {
@@ -54,6 +51,7 @@ define(['jquery', 'ejs', 'initscenery', 'pagination'], function($, EJS, initscen
 
 		addsceneryFormShow: function() {
 			$('#addsceneryForm').modal('show');
+			$('#logo').val('');
 			$('#sceneryid').val('');
 			$('#updateLogo').html('');
 			$('#sceneryName').val('');
@@ -66,13 +64,29 @@ define(['jquery', 'ejs', 'initscenery', 'pagination'], function($, EJS, initscen
 		},
 
 		addSubmitEvent: function() {
-			$('#submitBtn').on('click', this.handleSubmitForm.bind(this));
+			$('#submitBtn').off('click').on('click', this.handleSubmitForm.bind(this));
 		},
 
-		handleSubmitForm: function() {
-			alert('cheng');
-			$('#postSceneryForm').submit();
-			this.websocketclient()
+		handleSubmitForm: function(e) {
+			var form = new FormData(document.getElementById("postSceneryForm"));
+			$.ajax({
+					url:"/api/scenery/addScenery",
+					type : "post",
+					data:form,
+					processData:false,
+               		contentType:false,
+					success: this.commitform.bind(this)
+				});
+
+			$('#addsceneryForm').modal('hide');
+//			$('#postSceneryForm').submit();
+			this.websocketclient();
+		},
+		
+		commitform: function(res){
+			if(res.data.success){
+				$('#hot').trigger('click');
+			}
 		},
 
 		websocketclient: function() {

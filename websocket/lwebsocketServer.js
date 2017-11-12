@@ -6,7 +6,7 @@ var users = []
 var wardens = []
 
 function WsServer(){
- 	const wss = new WebSocket.Server({port: 4000, host: '10.9.164.43'})
+ 	const wss = new WebSocket.Server({port: 4444})
  	wss.on('connection', function(ws){
  		ws.on('message', function(message){
  			var message = JSON.parse(message)

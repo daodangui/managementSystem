@@ -98,9 +98,7 @@ define(['jquery', 'ejs','recommend'], function($, EJS, recommend) {
 		
 		handledeleterecommend: function(res){
 			if(res.data.success){
-				window.location.reload();
-				//会造成相互引用
-//				new recommend($('.container-fluid .row .main'));
+				$('#recommend').trigger("click");
 			}
 		},
 		

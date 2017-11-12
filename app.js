@@ -25,7 +25,7 @@ app.use(cookieSession({
 
 app.use('/api', apiRoute)
 
-app.listen('5000', '10.9.164.43')
+app.listen('5000', '10.9.164.35')
 
 //websocket服务器端
 WsServer()

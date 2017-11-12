@@ -56,12 +56,27 @@ define(['jquery', 'ejs','recommendlist','pagination'], function($, EJS,recommend
 		},
 		
 		addSubmitEvent: function(){
-			$('#submitBtn').on('click', this.handleSubmitForm.bind(this));
+			$('#submitBtnRe').off('click').on('click', this.handleSubmitForm.bind(this));
 		},
 		
 		handleSubmitForm: function(){
-			alert('cheng-recommend');
-			$('#postRecommendForm').submit();
+			var form = new FormData(document.getElementById("postRecommendForm"));
+			$.ajax({
+					url:"/api/recommend/addRecommend",
+					type : "post",
+					data:form,
+					processData:false,
+               		contentType:false,
+					success: this.commitformRecommend.bind(this)
+				});
+			$('#addrecommedForm').modal('hide');
+//			$('#postRecommendForm').submit();
+		},
+		
+		commitformRecommend: function(res){
+			if(res.data.success){
+				$('#recommend').trigger('click');
+			}
 		}
 	})
 	return recommend
