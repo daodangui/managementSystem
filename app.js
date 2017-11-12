@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const cookieSession =require('cookie-session')
-const WsServer = require('./websocket/websocketServer')
+const WsServer = require('./websocket/lwebsocketServer')
 
 const apiRoute = require('./routes/api.js')
 
