@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const cookieSession =require('cookie-session')
+const WsServer = require('./websocket/lwebsocketServer')
 
 const apiRoute = require('./routes/api.js')
 
@@ -24,6 +25,9 @@ app.use(cookieSession({
 
 app.use('/api', apiRoute)
 
-websocket();
+app.listen('5000', '10.9.164.43')
 
-app.listen('5000', '10.9.164.35')
+//websocket服务器端
+WsServer()
+
+websocket();
