@@ -1,4 +1,4 @@
-define(['jquery', 'ejs'], function($, EJS) {
+define(['jquery', 'ejs','require'], function($, EJS,require) {
 	const sceneryList = function(container) {
 		this.container = container || $('body')
 		this.init()
@@ -58,7 +58,6 @@ define(['jquery', 'ejs'], function($, EJS) {
 		},
 		
 		handleSearchscenery: function(res){
-			console.log(res);
 			var list = new EJS({
 				url: '../../../template/ytemplate/scenerylist.ejs'
 			});
@@ -98,7 +97,9 @@ define(['jquery', 'ejs'], function($, EJS) {
 		
 		handledeletescenery: function(res){
 			if(res.data.success){
-				window.location.reload();
+//				require('content').showHotTable();
+				new hot($('.container-fluid .row .main'));
+//				window.location.reload();
 			}
 		},
 		

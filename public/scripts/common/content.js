@@ -23,7 +23,6 @@ define(['jquery','ejs', 'main', 'personData', 'square', 'hot', 'recommend', 'CSp
 			this.container.find('#csBtn').on('click', this.openCSpage.bind(this))
 			$('#hot').on('click', this.showHotTable.bind(this));
 			$('#recommend').on('click', this.showrecommendtable.bind(this));
-			
 		},
 
 		openCSpage(){

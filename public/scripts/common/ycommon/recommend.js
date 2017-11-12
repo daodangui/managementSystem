@@ -24,12 +24,12 @@ define(['jquery', 'ejs','recommendlist','pagination'], function($, EJS,recommend
 		},
 		
 		handlePagination: function(res){
-			this.pagination = new pagination($('#paginationCon'), res)
-			$(this.pagination).off('pageNochange').on('pageNochange', this.getScenerylist.bind(this))
+			this.pagination = new pagination($('#paginationCon'), res);
+			$(this.pagination).off('pageNochange').on('pageNochange', this.getScenerylist.bind(this));
 		},
 		
 		getScenerylist: function(data){
-			this.list.getScenertlist(data.pageno);
+			this.list.getRecommendlist(data.pageno);
 		},
 		
 		createForm: function(){
@@ -40,20 +40,19 @@ define(['jquery', 'ejs','recommendlist','pagination'], function($, EJS,recommend
 		},
 		
 		formShow: function(){
-			$('#addscenery').on('click', this.addsceneryFormShow.bind(this));
+			$('#addrecommend').on('click', this.addsceneryFormShow.bind(this));
 		},
 		
 		addsceneryFormShow: function(){
 			$('#addrecommedForm').modal('show');
-			$('#sceneryid').val('');
-			$('#updateLogo').html('');
-			$('#sceneryName').val('');
-			$('#satisfaction').val('');
-			$('#summary').val('');
-			$('#price').val('');
-			$('#commentcount').val('');
-			$('#tag').val('');
-			$('#grade').val('');
+			$('#recommendid').val('');
+			$('#updateImg').html('');
+			$('#SceneryName').val('');
+			$('#Satisfaction').val('');
+			$('#Describe').val('');
+			$('#LowPrice').val('');
+			$('#CommentNumber').val('');
+			$('#Distance').val('');
 		},
 		
 		addSubmitEvent: function(){
