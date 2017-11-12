@@ -7,6 +7,7 @@ const userController = require('../controller/user.js')
 const squareController = require('../controller/square.js')
 
 const sceneryController = require('../controller/scenery.js')
+
 const recommendController = require('../controller/recommend.js')
 
 //用户相关路由
@@ -45,7 +46,9 @@ router.get('/scenery/felist', sceneryController.felist);
 //热门推荐相关
 router.post('/recommend/addRecommend',  upload.single('logo'), recommendController.addRecommend);
 router.get('/recommend/getRecommendlist', recommendController.getRecommendlist);
-
+router.get('/recommend/deleteRecommend', recommendController.deleteRecommend);
+router.get('/recommend/updateRecommend', recommendController.updateRecommend);
+router.get('/recommend/findRecommend', recommendController.findRecommend);
 
 
 module.exports = router

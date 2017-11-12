@@ -22,7 +22,6 @@ define(['jquery','ejs', 'main', 'personData', 'square', 'hot','recommend'], func
 			this.container.find('#squareBtn').on('click', this.openSquareList.bind(this))
 			$('#hot').on('click', this.showHotTable.bind(this));
 			$('#recommend').on('click', this.showrecommendtable.bind(this));
-			
 		},
 
 		openSquareList(){

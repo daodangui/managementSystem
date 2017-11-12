@@ -1,23 +1,35 @@
 <div class="table-responsive">
-	<button id="addscenery" class="btn btn-primary">添加</button>
-	<select class="form-control" id="searchForm">
-		<option value="1">搜索条件</option>
-		<option value="2">景点名称</option>
-	</select>
-
-	<div class="box" id="box">
-		<input type="text" class="form-control" id="inputPassword" placeholder="请输入">
-		<button type="submit" class="btn btn-default" id="searchBtn">搜索</button>
-	</div>
-	<table class="table table-striped">
-		<caption class="sub-header" id="table-title">
+	<div id="wrap">
+		<button id="addrecommend" class="btn btn-primary">添加</button>
+		<h3 id="table-title">
 			周边推荐管理表
-		</caption>
+		</h3>
+
+		<div class="se-wrap">
+			<select class="form-control" id="searchForm">
+				<option value="1">搜索条件</option>
+				<option value="2">景点名称</option>
+				<option value="2">价格</option>
+				<option value="3">距离</option>
+				
+			</select>
+			<div class="box" id="box">
+				<input type="text" class="form-control" id="inputPassword" placeholder="请输入">
+				<button type="submit" class="btn btn-default" id="searchBtn">搜索</button>
+			</div>
+		</div>
+	</div>
+	
+	
+	<table class="table table-striped">
+		<!--<caption class="sub-header" id="table-title">
+			周边推荐管理表
+		</caption>-->
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>景点名称</th>
 				<th>景点图片</th>
+				<th>景点名称</th>
 				<th>满意度</th>
 				<th>介绍</th>
 				<th>价格</th>
@@ -31,7 +43,7 @@
 		</tbody>
 	</table>
 
-	<nav aria-label="Page navigation">
+	<nav aria-label="Page navigation" class="navigation">
 		<ul class="pagination" id="paginationCon">
 
 		</ul>

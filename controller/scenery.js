@@ -47,6 +47,7 @@ const addscenery = function(req, res, next) {
 		});
 
 		willsaveScenery.save().then(() => {
+//			new hot($('.container-fluid .row .main'));
 			res.redirect('/index.html');
 		})
 	}
@@ -107,14 +108,13 @@ const felist = function(req, res, next) {
 
 //景点搜索
 const searchScenery = function(req, res, next) {
-	var pageSize = 2;
+	var pageSize = 8;
 	var {
 		content,
 		conditions
 	} = req.query;
 	var pageNo = 1;
 	if(conditions == '景点名称') {
-		console.log("kkkk");
 		Scenery.find({
 				sceneryName: eval('/' + content + '/')
 			})
@@ -122,39 +122,26 @@ const searchScenery = function(req, res, next) {
 				res.json(getUser(result))
 			})
 	}
-//	if(conditions == 'grade') {
-//		Scenery.find({
-//				grade: content
-//			})
-//			.then((result) => {
-//				res.json(getUser(result))
-//			})
-//	}
-//	if(conditions == 'commentcount') {
-//		Scenery.find({
-//				commentcount: {
-//					$gt: content
-//				}
-//			})
-//			.then((result) => {
-//				var documentSize = result.length;
-//				Scenery.find({
-//					commentcount: {
-//						$gt: content
-//					}
-//				})
-//				.skip((pageNo - 1) * pageSize)
-//				.limit(pageSize)
-//				.then((result) => {
-//					var page = {
-//						result,
-//						pageCount: Math.ceil(documentSize / pageSize),
-//						pageNo: parseInt(pageNo, 10)
-//					}
-//					res.json(getUser(page))
-//				})
-//			})
-//	}
+	if(conditions == '满意度') {
+		Scenery.find({
+				satisfaction: {
+					$gt: content
+				}
+			})
+			.then((result) => {
+				res.json(getUser(result))
+			})
+	}
+	if(conditions == '价格') {
+		Scenery.find({
+				price: {
+					$gte: content
+				}
+			})
+			.then((result) => {
+				res.json(getUser(result))
+			})
+	}
 }
 
 module.exports = {

@@ -5,6 +5,9 @@ const cookieSession =require('cookie-session')
 
 const apiRoute = require('./routes/api.js')
 
+//yp websocket
+const websocket = require('./websocket/websocketServer.js');
+
 const app = express()
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -21,4 +24,6 @@ app.use(cookieSession({
 
 app.use('/api', apiRoute)
 
-app.listen('5000', '10.9.164.43')
+websocket();
+
+app.listen('5000', '10.9.164.35')
